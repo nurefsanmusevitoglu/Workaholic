@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="height:75px"></div>
+
+
+
+<div class="row">
+    <div class="col-8 container bg-white p-5">
+        <table class="table">
+            <thead>
+                <tr style="background-color:#f8f8f8" class="text-center">
+                    <th colspan="2" class="border-left">TIME</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th class="border-right">Sunday</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="example-1 scrollbar-ripe-malinka">
+            <table id="schedule" class="table table-bordered" width="unset">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="background-color:#f8f8f8" class="text-center">All Day</th>
+                        <th id="0"></th>
+                        <th id="1"></th>
+                        <th id="2"></th>
+                        <th id="3"></th>
+                        <th id="4"></th>
+                        <th id="5" style="background-color:#f8f8f8"></th>
+                        <th id="6" style="background-color:#f8f8f8"></th>
+                    </tr>
+                </thead>
+                <tbody class="example-1 scrollbar-ripe-malinka">
+                    @{ string ext = "AM";
+                        int cnt = 0;
+                        int i = 7;
+                        int boxId = 7;
+                        do
+                        {
+                            <tr>
+                                <td rowspan="2" style="background-color:#f8f8f8; font-size: large" class="border-right-0 text-right">@i</td>
+                                <td style="background-color:#f8f8f8; font-size:x-small; padding:5px" class="border-left-0">@ext</td>
+                                @for (int j = 1; j <= 7; j++)
+                                {
+                                    if (j == 6 || j == 7)
+                                    {
+                                        <td id="@boxId" style="background-color:#f8f8f8">
+                                        </td>
+                                        boxId++;
+                                    }
+                                    else
+                                    {
+                                        <td id="@boxId">
+                                        </td>
+                                        boxId++;
+                                    }
+                                }
+                            </tr>
+                            <tr>
+                                <td style="background-color:#f8f8f8" class="border-left-0"></td>
+                                @for (int j = 1; j <= 7; j++)
+                                {
+                                    if (j == 6 || j == 7)
+                                    {
+                                        <td id="@boxId" class="number-row" style="background-color:#f8f8f8">
+                                        </td>
+                                        boxId++;
+                                    }
+                                    else
+                                    {
+                                        <td id="@boxId" class="number-row">
+                                        </td>
+                                        boxId++;
+                                    }
+                                }
+                            </tr>
+                            if (i == 12) { i = 0; }
+                            if (++i == 12)
+                            {
+                                cnt++;
+                                ext = "PM";
+                            }
+                        } while (cnt < 2);
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-4">
+        @Html.Partial("NewActivity")
+    </div>
+</div>
+
+<style>
+    th {
+        width: 115px;
+    }
+
+    .table {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .number-row {
+    }
+</style>
+
+<style>
+    .scrollbar-ripe-malinka::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #F5F5F5;
+    border-radius: 10px; }
+
+    .scrollbar-ripe-malinka::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5; }
+
+    .scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+    background-image: linear-gradient(120deg, #fd5c11 0%, #ee0c75 100%); }
+
+    .example-1 {
+    position: relative;
+    overflow-y: scroll;
+    height: 500px; 
+    border: thin;
+    }
+</style>

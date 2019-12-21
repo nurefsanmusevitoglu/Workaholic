@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+	<div class="container pt-5 mt-5 p-5">
+
+		<div class="text-center">
+			<h2>Sign Up</h2>
+			<h4 class="text-black-50">Create your account</h4>
+
+			<div class="btn-group m-5">
+				<a href="@Url.Action("SignUpEmployee")" class="btn btn-primary btn-xl rounded-pill mx-2">I'm an Employee</a>
+				<a href="@Url.Action("SignUpEmployer")" class="btn btn-primary btn-xl rounded-pill mx-2">I'm an Employer</a>
+			</div>
+
+			<div>
+				By creating an account, you agree to Workaholic’s <br />
+				<a href="#">Terms and Privacy Policy</a>. <br />
+				Already have an account? <a href="@Url.Action("LogIn")">Log in</a>.
+			</div>
+		</div>
+	</div>

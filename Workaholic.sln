@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workaholic", "Workaholic\Workaholic.csproj", "{AFD5D896-96DF-4893-81E4-3DE270AA5EFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFD5D896-96DF-4893-81E4-3DE270AA5EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD5D896-96DF-4893-81E4-3DE270AA5EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD5D896-96DF-4893-81E4-3DE270AA5EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD5D896-96DF-4893-81E4-3DE270AA5EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98F1F219-1407-4B4B-8921-DAD3BF4508AC}
+	EndGlobalSection
+EndGlobal

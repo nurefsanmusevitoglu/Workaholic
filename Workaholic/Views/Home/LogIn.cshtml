@@ -1,0 +1,50 @@
+﻿@model Workaholic.Models.User
+@{
+	ViewBag.Title = "LogIn";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container pt-5 mt-5 p-5">
+
+	<div class="text-center">
+		<h2>Hi again!</h2>
+		<h4 class="text-black-50">Log into your account here</h4>
+	</div>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-horizontal my-4">
+			<div class="offset-3">
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-8">
+						@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+						@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+						<p class="text-danger">@ViewBag.UserDoesNotExistMessage</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Password, htmlAttributes: new { @type = "password", @class = "control-label col-md-2" })
+					<div class="col-md-8">
+						@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+						@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+						<p class="text-danger">@ViewBag.PasswordNotCorrectMessage</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<input type="submit" value="Log In" class="btn btn-primary rounded-pill" />
+			</div>
+		</div>
+	}
+
+	<hr />
+	<div class="text-center">
+		Don't have an account <a href="@Url.Action("LogIn")">Sign up</a>.
+	</div>
+</div>
